@@ -14,9 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CameraFiscal">
         <activity
+            android:name=".Galeria"
+            android:exported="false" />
+        <activity
             android:name=".CameraPreview"
             android:exported="false"
-            android:theme="@style/Theme.CameraFiscal"/>
+            android:theme="@style/Theme.CameraFiscal" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -1,5 +1,6 @@
 package com.example.camerafiscal
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.example.camerafiscal.databinding.ActivityCameraPreviewBinding
+import com.example.camerafiscal.databinding.ActivityGaleriaBinding
 import com.google.common.util.concurrent.ListenableFuture
 import java.io.File
 import java.util.concurrent.ExecutorService
@@ -26,11 +28,8 @@ class CameraPreview : AppCompatActivity() {
     private var ImageCapture: ImageCapture?  = null
     private lateinit var imgCaptureExecutor: ExecutorService
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCameraPreviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
         cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
@@ -41,6 +40,7 @@ class CameraPreview : AppCompatActivity() {
         }
 
     }
+
 
     private fun startCamera(){
         cameraProviderFuture.addListener({
@@ -86,5 +86,9 @@ class CameraPreview : AppCompatActivity() {
                 binding.root.foreground = null
             }, 58)
         }, 100)
+    }
+    private fun abrirGaleria(){
+        val Galeria = Intent(this, ActivityGaleriaBinding::class.java)
+        startActivity(ActivityGaleriaBinding)
     }
 }
