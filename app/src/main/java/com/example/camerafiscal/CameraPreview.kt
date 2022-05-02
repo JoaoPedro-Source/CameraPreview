@@ -88,7 +88,7 @@ class CameraPreview : AppCompatActivity() {
         }, 100)
     }
     private fun abrirGaleria(){
-        val Galeria = Intent(this, ActivityGaleriaBinding::class.java)
+        val intent = Intent(this, ActivityGaleriaBinding::class.java)
         startActivity(ActivityGaleriaBinding)
     }
 }
